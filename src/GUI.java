@@ -45,7 +45,7 @@ public class GUI extends JPanel {
 		// /menu options
 		menuBar.setOpaque(true);
 		menuBar.setBackground(new Color(154, 165, 127));
-		menuBar.setPreferredSize(new Dimension(250, 20));
+		menuBar.setPreferredSize(new Dimension(270, 20));
 
 		// /copy hex in menu bar
 		JMenuItem copyHex = new JMenuItem("Copy Hex");
