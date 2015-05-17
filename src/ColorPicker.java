@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
@@ -16,7 +18,11 @@ public class ColorPicker extends JPanel {
 		
 		Color color = new Color(255, 255, 255);
 		
-		for (int i = 0; i < 100;) {
+		
+		boolean enterPressed = false;
+		
+		
+		while (!enterPressed) {
 			if (!color.equals(screenInfo.getColor())) {
 
 
@@ -29,3 +35,6 @@ public class ColorPicker extends JPanel {
 	
 	
 }
+
+
+
