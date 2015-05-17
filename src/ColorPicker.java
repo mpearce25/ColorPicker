@@ -21,7 +21,8 @@ public class ColorPicker extends JPanel {
 
 
 				gui.setBackgroundColor(screenInfo.getColor());
-				gui.setLabelText(gui.colorInfo,screenInfo.getColor().toString());
+				gui.setColorText("Hex: " + screenInfo.getColorHex() + "\t\tRGB: " + screenInfo.getColorRGB());
+				
 			}
 		}
 	}
