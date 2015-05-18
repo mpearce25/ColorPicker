@@ -25,6 +25,35 @@ public class GUI extends JPanel {
 				}
 			}
 		});
+		
+		
+		
+		/*Component listener = new Component();
+		frame.getContentPane().add(listener);
+		listener.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "doSomething");
+		listener.getActionMap().put("doSomething", listener.getAction());
+		
+
+	    @Override
+	    public void actionPerformed(ActionEvent action) {
+
+	   
+	    	try {
+				ColorPicker.changeRun();
+			} catch (AWTException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	   }
+	         
+	};*/
+		
+		
+		
+		//JButton component = new Jbutton("Button");
+		//InputMap map = component.getInputMap(JComponent.WHEN_FOCUSED);
+		
 	}
 
 	private static void displayGUI() throws AWTException {
@@ -38,13 +67,13 @@ public class GUI extends JPanel {
 
 		// /copy hex in menu bar
 		JMenuItem copyHex = new JMenuItem("Copy Hex");
-		copyHex.addActionListener(new MenuActionListener());
+		copyHex.addActionListener(new copyHex());
 		menuBar.add(copyHex);
 		frame.setJMenuBar(menuBar);
 
 		// ////copy rgb in menu bar
 		JMenuItem copyRGB = new JMenuItem("Copy RGB");
-		copyRGB.addActionListener(new MenuActionListener());
+		copyRGB.addActionListener(new copyRGB());
 		menuBar.add(copyRGB);
 		frame.setJMenuBar(menuBar);
 
@@ -64,6 +93,11 @@ public class GUI extends JPanel {
 		frame.getContentPane().add(colorInfo, BorderLayout.NORTH);
 
 		// ////////////
+		
+		
+		
+		
+		
 
 		// Display the window.
 		frame.pack();
@@ -83,35 +117,28 @@ public class GUI extends JPanel {
 
 }
 
-class MenuActionListener implements ActionListener {
+class copyRGB implements ActionListener {
+
+	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		String action = e.getActionCommand();
-		switch (action) {
-		case "Copy RGB":
-			try {
-				setClipboard(screenInfo.getColorRGB());
-			} catch (AWTException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			break;
-		case "Copy Hex": 
-			try {
-				setClipboard(screenInfo.getColorHex());
-			} catch (AWTException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
+		try {
+			Utilities.setClipboard(screenInfo.getColorRGB());
+		} catch (AWTException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-
 	}
-	
-	private void setClipboard(String text){
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Clipboard clipboard = toolkit.getSystemClipboard();
+}
 
-        clipboard.setContents(new StringSelection(text), null);
+class copyHex implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		try {
+			Utilities.setClipboard(screenInfo.getColorHex());
+		} catch (AWTException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 }
