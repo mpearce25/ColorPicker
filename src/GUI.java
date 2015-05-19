@@ -28,26 +28,13 @@ public class GUI extends JPanel {
 		
 		
 		
-		/*Component listener = new Component();
+		KeyListener listener = new KeyListener();
 		frame.getContentPane().add(listener);
 		listener.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "doSomething");
 		listener.getActionMap().put("doSomething", listener.getAction());
 		
 
-	    @Override
-	    public void actionPerformed(ActionEvent action) {
 
-	   
-	    	try {
-				ColorPicker.changeRun();
-			} catch (AWTException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-	   }
-	         
-	};*/
 		
 		
 		
